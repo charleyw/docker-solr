@@ -21,7 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   ln -s /opt/$SOLR /opt/solr && \
   chown -R $SOLR_USER:$SOLR_USER /opt/solr /opt/$SOLR
 
-EXPOSE 8983
+EXPOSE 80
 WORKDIR /opt/solr
 USER $SOLR_USER
-CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f"]
+CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f -p 80"]
